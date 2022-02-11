@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <h1 class="mt-4">Adicionar categoria</h1>
+  <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item active">Categoria</li>
+  </ol>
+
+  <div class="row">
+    <div class="col-md-12" role="alert" *ngIf="valid == true">
+      <div class="alert alert-success" role="alert">
+        Atualizado/criado com sucesso!
+      </div>
+    </div>
+  </div>
+
+  <form class="row g-3" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="Nome" required formControlName="name" name = "name">
+    </div>
+    <div class="col-12">
+      <button class="btn btn-success" type="submit">
+        <i class="fa fa-save"></i> Salvar
+      </button>
+    </div>
+  </form>
+
+</div>

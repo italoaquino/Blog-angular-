@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <h1 class="mt-4">Adicionar categoria</h1>
+  <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item active">Categoria</li>
+  </ol>
+  <form class="row g-3" [formGroup]="editform" >
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="Nome" required formControlName="name" >
+    </div>
+    <div class="col-12">
+      <button class="btn btn-success" type="submit" (click)="postForm(editform.value, category.id)">
+        <i class="fa fa-save"></i> Salvar
+      </button>
+    </div>
+  </form>
+
+</div>
+
