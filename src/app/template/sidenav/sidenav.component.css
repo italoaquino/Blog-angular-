@@ -1,0 +1,16 @@
+.nav-link{
+  color: black !important;
+ }
+
+.sb-sidenav-menu-heading{
+  color: black !important;
+  font-family: 'Raleway', sans-serif !important;}
+
+.sb-sidenav{
+  background-color: rgba(61, 63, 61, 0.425) !important;
+}
+
+.sb-sidenav-footer{
+  color: black !important;
+  font-family: 'Raleway', sans-serif !important;
+}

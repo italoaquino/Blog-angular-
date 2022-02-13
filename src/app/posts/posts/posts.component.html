@@ -1,9 +1,36 @@
 <div class="container-fluid">
   <h1 class="mt-4">Posts</h1>
-  <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active">Posts</li>
-  </ol>
-
-
-
+  <table class="table" >
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th scope="col">#</th>
+        <th scope="col">Título</th>
+        <th scope="col">Author</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of $post | async">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{post.id}}</td>
+        <td>{{post.tittle}}</td>
+        <td>{{post.author}}</td>
+        <td>
+          <button class="btn btn-outline-warning" type="submit" style="margin-right: 5px !important;" (click)="edit(post.id)">
+           Atualizar
+          </button>
+          <button class="btn btn-outline-danger" type="submit" (click)="delete(post.id)">
+           Deletar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+

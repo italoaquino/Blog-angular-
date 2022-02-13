@@ -5,13 +5,18 @@ import { FormEditComponent } from './formEdit/form-edit.component';
 
 const routes: Routes = [
   {
-    path : '' , redirectTo : 'posts', pathMatch : 'full'
+    path : '' , redirectTo : 'home', pathMatch : 'full'
   },
-
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  }
+,
   {
     path: 'posts',
     loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule)
   }
+
   ,{
     path: 'category',
     loadChildren: () => import('./category/category.module').then(m => m.CategoryModule)
@@ -22,6 +27,10 @@ const routes: Routes = [
   },
   {
     path: 'editar/:id', component: FormEditComponent
+  },
+  {
+    path: 'editarPost/:id',
+    loadChildren: () => import('./form-edit-post/form-edit-post.module').then(m => m.FormEditPostModule)
   },
   {
     path: 'formPost',

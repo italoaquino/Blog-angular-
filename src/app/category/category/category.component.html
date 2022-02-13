@@ -1,28 +1,29 @@
 <div class="container-fluid">
   <h1 class="mt-4">Categorias</h1>
-  <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active">Categorias</li>
-  </ol>
   <table class="table">
-    <thead>
+    <thead >
       <tr>
+        <th></th>
+        <th></th>
+        <th></th>
         <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Guid</th>
+        <th scope="col">Categoria</th>
         <th scope="col">Ações</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let category of category">
+      <tr *ngFor="let category of $category| async">
+        <td></td>
+        <td></td>
+        <td></td>
         <td>{{category.id}}</td>
         <td>{{category.name}}</td>
-        <td>{{category.guid}}</td>
         <td>
-          <button class="btn btn-warning" type="submit" style="margin-right: 5px !important;" (click)="editarCategory(category.id)">
-            Update
+          <button class="btn btn-outline-warning" type="submit" style="margin-right: 5px !important;" (click)="editarCategory(category.id)">
+            Editar
           </button>
-          <button class="btn btn-danger" type="submit" (click)="delete(category.id)">
-            Delete
+          <button class="btn btn-outline-danger" type="submit" (click)="confirmeDelete(category)" >
+            Excluir
           </button>
         </td>
       </tr>
@@ -31,3 +32,17 @@
 </div>
 
 
+
+<ng-template #deleteModel>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Deseja excluir?</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>Você confirma?</p>
+    <button type="button" class="btn btn-primary">Não</button>
+    <button type="button" class="btn btn-danger" style="margin-right: 2px;">Sim</button>
+  </div>
+</ng-template>

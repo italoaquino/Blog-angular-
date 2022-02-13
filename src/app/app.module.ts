@@ -9,13 +9,20 @@ import { HeaderComponent } from './template/header/header.component';
 import { FormcategoryRoutingModule } from './form-category/formcategory-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormEditComponent } from './formEdit/form-edit.component';
+import { FormEditPostComponent } from './form-edit-post/form-edit-post/form-edit-post.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SidenavComponent,
-    FormEditComponent
+    FormEditComponent,
+    FormEditPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +31,10 @@ import { FormEditComponent } from './formEdit/form-edit.component';
     HttpClientModule,
     FormcategoryRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

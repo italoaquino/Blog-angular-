@@ -1,8 +1,8 @@
-import { Category } from './../../shared/Category';
+import { Category } from '../../category/models/Category';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ThisReceiver } from '@angular/compiler';
-import { CategoryService } from 'src/app/shared/services/category.service';
+import { CategoryService } from 'src/app/category/services/category.service';
 
 
 @Component({
@@ -13,7 +13,6 @@ import { CategoryService } from 'src/app/shared/services/category.service';
 export class FormcategoryComponent implements OnInit {
 
   valid : boolean = false;
-
   formulario !: FormGroup;
   error: any;
 

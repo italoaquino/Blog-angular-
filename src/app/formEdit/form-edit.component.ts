@@ -1,9 +1,9 @@
 import { data } from 'jquery';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Category } from '../shared/Category';
+import { Category } from '../category/models/Category';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryService } from '../shared/services/category.service';
+import { CategoryService } from '../category/services/category.service';
 
 @Component({
   selector: 'app-form-edit',
@@ -14,22 +14,18 @@ export class FormEditComponent implements OnInit {
 
   category! : Category;
 
-
-
-  constructor(private activerouter : ActivatedRoute, private router : Router, private categoryService : CategoryService) { }
-
-
+  constructor(private activedroute : ActivatedRoute, private categoryService : CategoryService) { }
 
   editform = new FormGroup({
-    name : new FormControl('')
+    name : new FormControl('', Validators.required)
   })
 
   ngOnInit(): void {
 
-    let id = this.activerouter.snapshot.paramMap.get('id');
+    let id = this.activedroute.snapshot.paramMap.get('id');
     this.categoryService.findById(id).subscribe(
       data =>{
-        this.category =data
+        this.category = data
         this.editform.setValue({
           'name' : this.category.name
         })

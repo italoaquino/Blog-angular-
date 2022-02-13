@@ -6,7 +6,7 @@
               <h2 class="title"></h2>
           </div>
           <div class="card-body">
-              <form [formGroup]="formulario">
+              <form [formGroup]="editPostForm">
                   <div class="form-row">
                       <div class= "name">Título*</div>
                       <div class="value">
@@ -26,7 +26,7 @@
                       <div class="name">Nome do autor*</div>
                       <div class="value">
                         <div class="input-group">
-                            <input class="input--style-6" type="email" name="email" placeholder="example@email.com" formControlName = "author">
+                            <input class="input--style-6" type="text" name="text" placeholder="example@email.com" formControlName = "author">
                         </div>
                     </div>
                   </div>
@@ -34,10 +34,10 @@
                     <div class="name">Categoria*</div>
                     <div class="value">
                       <select class="form-select" aria-label="Default select example"
-                      formControlName = "category_id"
+                        formControlName = 'category_id'
                       >
                         <option value="">Selecione a categoria</option>
-                        <option *ngFor="let cat of category" [ngValue]="cat.id" >{{cat.name}}</option>
+                        <option  *ngFor="let category of category" [ngValue]="category.id">{{category.name}}</option>
 
                       </select>
                     </div>
@@ -45,11 +45,11 @@
                   <div class="form-row">
                     <div class="name">Texto*</div>
                     <div class="value">
-                        <textarea class="textarea--style-6" name="message" placeholder="Message sent to the employer" formControlName = "text"></textarea>
+                        <textarea class="textarea--style-6" name="message" placeholder="Message sent to the employer" formControlName = "text" ></textarea>
                     </div>
                   </div>
                   <div class="card-footer">
-                    <button class="btn btn--radius-2 btn--blue-2" type="submit" (click)="onSubmit()">Enviar post</button>
+                    <button class="btn btn--radius-2 btn--blue-2" type="submit" (click)="onSubmit(editPostForm.value, post.id)">Enviar post</button>
                 </div>
               </form>
           </div>
